@@ -28,11 +28,15 @@ class Profile(models.Model):
 
 class Questions(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    q1 = models.BooleanField(default='True')
-    q2 = models.BooleanField(default='True')
-    q3 = models.BooleanField(default='True')
-    q4 = models.BooleanField(default='True')
-    q5 = models.BooleanField(default='True')
+    q1 = models.BooleanField(help_text="Does pineapple belong on pizza?", default='True')
+    q2 = models.BooleanField(help_text="Are hot dogs sandwiches?", default='True')
+    q3 = models.BooleanField(help_text="Are you a morning person?", default='True')
+    q4 = models.BooleanField(help_text="Is your background picture is a selfie?", default='True')
+    q5 = models.BooleanField(help_text="Did you sit in a different seat each day in class?", default='True')
+    q6 = models.BooleanField(help_text="Do you eat pizza crust first?", default='True')
+    q7 = models.BooleanField(help_text="Do you pour milk in before the cereal?", default='True')
+    q8 = models.BooleanField(help_text="Do you put Christmas decorations on right after Halloween?", default='True')
+    q9 = models.BooleanField(help_text="Do you drink ice coffee even in freezing weather?", default='True')
 
     def __str__(self):
         return f'{self.user.username} Questions'
