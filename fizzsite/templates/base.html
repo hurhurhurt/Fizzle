@@ -82,6 +82,7 @@
         </div>
                 <div class="col-md-4">
           <div class="dropdown">
+              {% if user.is_authenticated %}
             <button onclick="myFunction()" class="dropbtn">What do you want to do?</button>
             <p class='text-muted'>
               <div id = "myDropdown"class="dropdown-content">
@@ -89,7 +90,9 @@
                 <li class="list-group-item list-group-item-light"> <a class="nav-item nav-link" href="#">Bio & Interests</a></li>
                 <li class="list-group-item list-group-item-light"> <a class="nav-item nav-link" href="#">Take the Quiz</a></li>
                 <li class="list-group-item list-group-item-light"> <a class="nav-item nav-link" href="{% url 'Fizzle-Upload_Picture' %}">Update User Information</a></li>
-              </div>
+              {% else %}
+              {% endif %}
+            </div>
           </div>
         </div>
       </div>
