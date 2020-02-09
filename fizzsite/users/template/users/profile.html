@@ -1,5 +1,6 @@
 {% extends "blog/base.html" %}
 {% load crispy_forms_tags %}
+{% load crispy_forms_filters%}
 {% block content %}
     <div class="content-section">
       <div class="media">
@@ -13,12 +14,13 @@
           {% csrf_token %}
           <fieldset class="form-group">
               <legend class="border-bottom mb-4">Profile Info</legend>
-              {{ u_form|crispy }}
-              {{ p_form|crispy }}
+              {{ u_form| crispy }}
+              {{ p_form| crispy }}
           </fieldset>
           <div class="form-group">
               <button class="btn btn-outline-info" type="submit">Update</button>
           </div>
       </form>
     </div>
+    <script>document.querySelector(".custom-file-label").className += " mt-5"</script>
 {% endblock content %}
