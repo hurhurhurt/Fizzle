@@ -28,4 +28,4 @@ class ProfileUpdateForm(forms.ModelForm):
 class QuestionsForm(forms.ModelForm):
     class Meta:
         model = Questions
-        fields = ['q1', 'q2', 'q3', 'q4', 'q5']
+        fields = ['IsAHotdogASandwich', 'q2', 'q3', 'q4', 'q5']
