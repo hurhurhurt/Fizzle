@@ -33,8 +33,8 @@ def login(request):
 def register(request):
     return render(request, 'users/register.html', {'title': 'Register'})
 
-def quiz(request):
-    return render(request, 'blog/quiz.html', {'title': 'quiz'})
+def upload_picture(request):
+    return render(request, 'blog/upload_picture.html', {'title': 'quiz'})
 
 class SignUp(generic.CreateView):
     form_class = UserCreationForm
