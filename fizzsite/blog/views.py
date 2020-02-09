@@ -24,3 +24,6 @@ def home(request):
 def about(request):
     return render(request, 'blog/about.html', {'title': 'About'})
 
+def register(request):
+    return render(request, 'users/register.html', {'title': 'Register'})
+
