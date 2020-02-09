@@ -21,3 +21,17 @@ class Profile(models.Model):
             output_size = (300, 300)
             img.thumbnail(output_size)
             img.save(self.image.path)
+
+class Questions(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    q1 = models.BooleanField(default='True')
+    q2 = models.BooleanField(default='True')
+    q3 = models.BooleanField(default='True')
+    q4 = models.BooleanField(default='True')
+    q5 = models.BooleanField(default='True')
+
+    def __str__(self):
+        return f'{self.user.username} Questions'
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)

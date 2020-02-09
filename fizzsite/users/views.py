@@ -39,3 +39,22 @@ def profile(request):
     }
 
     return render(request, 'users/profile.html', context)
+
+@login_required
+def questions(request):
+    if request.method == 'POST':
+        q_form = UserUpdateForm(request.POST, instance=request.user)
+
+        if q_form.is_valid():
+            q_form.save()
+            messages.success(request, f'Questions answered')
+            return redirect('Fizzle-Profile')
+
+    else:
+        q_form = QuestionsForm(instance=request.user.questions)
+
+    context = {
+        'q_form': q_form
+    }
+
+    return render(request, 'users/quiz.html', context)
