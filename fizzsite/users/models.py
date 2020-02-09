@@ -35,3 +35,5 @@ class Questions(models.Model):
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
+
+
