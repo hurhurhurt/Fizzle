@@ -3,7 +3,7 @@
 <html>
 <style>
  .dropbtn {
-  background-color: #4CAF50;
+  background-color: #FB5102;
   color: white;
   padding: 16px;
   font-size: 16px;
@@ -12,7 +12,7 @@
 }
 
 .dropbtn:hover, .dropbtn:focus {
-  background-color: #3e8e41;
+  background-color: #FB5102;
 }
 
 .dropdown {
@@ -88,9 +88,8 @@
             <p class='text-muted'>
               <div id = "myDropdown"class="dropdown-content">
                 <li class="list-group-item list-group-item-light"> <a class="nav-item nav-link" href="#">Match</a> </li>
-                <li class="list-group-item list-group-item-light"> <a class="nav-item nav-link" href="#">Bio & Interests</a></li>
                 <li class="list-group-item list-group-item-light"> <a class="nav-item nav-link" href="#">Take the Quiz</a></li>
-                <li class="list-group-item list-group-item-light"> <a class="nav-item nav-link" href="{% url 'Fizzle-Upload_Picture' %}">Update User Information</a></li>
+                <li class="list-group-item list-group-item-light"> <a class="nav-item nav-link" href="{% url 'Fizzle-Profile' %}">Update User Information</a></li>
               {% else %}
               {% endif %}
             </div>
