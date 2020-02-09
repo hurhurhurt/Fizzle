@@ -87,7 +87,7 @@
             <button onclick="myFunction()" class="dropbtn">What do you want to do?</button>
             <p class='text-muted'>
               <div id = "myDropdown"class="dropdown-content">
-                <li class="list-group-item list-group-item-light"> <a class="nav-item nav-link" href="#">Match</a> </li>
+                <li class="list-group-item list-group-item-light"> <a class="nav-item nav-link" href="{% url 'Fizzle-Match' %}">Your Match</a> </li>
                 <li class="list-group-item list-group-item-light"> <a class="nav-item nav-link" href="{% url 'Fizzle-Questions' %}">Take the Quiz</a></li>
                 <li class="list-group-item list-group-item-light"> <a class="nav-item nav-link" href="{% url 'Fizzle-Profile' %}">Update User Information</a></li>
               {% else %}
