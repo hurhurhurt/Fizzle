@@ -7,7 +7,7 @@ from users.forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib import messages
 
 def home(request):
-    return render(request, 'blog/base.html')
+    return render(request, 'home.html')
 
 def about(request):
     return render(request, 'blog/about.html', {'title': 'About'})
