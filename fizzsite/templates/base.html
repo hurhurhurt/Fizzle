@@ -1,6 +1,39 @@
 {% load static %}
 <!doctype html>
 <html>
+<style>
+ .dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #3e8e41;
+}
+
+.dropdown {
+  float: right;
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  right: 0;
+  z-index: 1;
+}
+.dropdown a:hover {background-color: #ddd;}
+.show {display: block;}
+</style>
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -47,19 +80,37 @@
         <div class="col-md-8">
           {% block content %}{% endblock %}
         </div>
-        <div class="col-md-4">
-          <div class="content-section">
-            <h3>What do you want to do?</h3>
+                <div class="col-md-4">
+          <div class="dropdown">
+            <button onclick="myFunction()" class="dropbtn">What do you want to do?</button>
             <p class='text-muted'>
-              <ul class="list-group">
+              <div id = "myDropdown"class="dropdown-content">
                 <li class="list-group-item list-group-item-light"> <a class="nav-item nav-link" href="#">Match</a> </li>
                 <li class="list-group-item list-group-item-light"> <a class="nav-item nav-link" href="#">Bio & Interests</a></li>
                 <li class="list-group-item list-group-item-light"> <a class="nav-item nav-link" href="#">Take the Quiz</a></li>
-                <li class="list-group-item list-group-item-light"> <a class="nav-item nav-link" href="#">Update User Information</a></li>
-              </ul>
+                <li class="list-group-item list-group-item-light"> <a class="nav-item nav-link" href="{% url 'Fizzle-Upload_Picture' %}">Update User Information</a></li>
+              </div>
           </div>
         </div>
       </div>
+</main>
+<script>
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
 </main>
 </body>
 </html>
