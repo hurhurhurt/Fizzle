@@ -33,7 +33,12 @@ def login(request):
 def register(request):
     return render(request, 'users/register.html', {'title': 'Register'})
 
+def quiz(request):
+    return render(request, 'blog/quiz.html', {'title': 'quiz'})
+
 class SignUp(generic.CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy('Fizzle-Login')
-    template_name = 'register.html'
+    template_name = 'users/register.html'
+
+
