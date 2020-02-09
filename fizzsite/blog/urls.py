@@ -5,6 +5,7 @@ urlpatterns = [
     path('', views.home, name ='Fizzle-Home'),
     path('about/', views.about, name ='Fizzle-About'),
     path('', include('django.contrib.auth.urls')),
+    path('profile/', views.profile, name = 'Fizzle-Profile'),
     path('login/', views.login, name ='Fizzle-Login'),
     path('logout/', views.login, name ='Fizzle-Logout'),
     path('register/', views.SignUp.as_view(), name = 'Fizzle-Register'),
