@@ -80,6 +80,7 @@ def quiz(request):
     if request.method == 'POST':
         form = Quiz(request.POST)
         if form.is_valid():
+            form.save()
             form.questions = request.user
             return redirect('Fizzle-Quiz')
     else:

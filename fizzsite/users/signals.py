@@ -3,7 +3,6 @@ from django.contrib.auth.models import User
 from django.dispatch import receiver
 from .models import Profile, Questions
 
-
 @receiver(post_save, sender=User)
 def save_profile(sender, instance, created, **kwargs):
     user = instance

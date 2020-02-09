@@ -3,12 +3,6 @@ from django import forms
 from django.contrib.auth.models import User
 
 ANSWERS = [(0, 'YES'), (1, 'NO')]
-QUESTIONS = ['Do pineapples belong on pizza?','Are hot dogs sandwiches?','Are you a morning person?',
-             'Do you have a selfie as your background?', 'Should pizza crusts be eaten first?'
-             'Do you sit in a different seat everyday in class to determine the best view?',
-             'Is milk poured before cereal?', 'Do Christmas decorations go up right after Halloween?',
-             'Should iced coffee be drunk even if it is -10 degrees?']
-
 
 class Quiz(forms.Form):
     q1 = forms.MultipleChoiceField(choices=ANSWERS)
