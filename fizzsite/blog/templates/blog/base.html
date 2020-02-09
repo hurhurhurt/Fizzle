@@ -94,10 +94,9 @@
                 <button onclick="myFunction()" class="dropbtn">What do you want to do?</button>
                 <p class='text-muted'>
                   <div id = "myDropdown"class="dropdown-content">
-                    <li class="list-group-item list-group-item-light"> <a class="nav-item nav-link" href="#">Match</a> </li>
-                    <li class="list-group-item list-group-item-light"> <a class="nav-item nav-link" href="{% url 'Fizzle-Profile' %}">Bio & Interests</a></li>
+                    <li class="list-group-item list-group-item-light"> <a class="nav-item nav-link" href="#">Matches</a> </li>
+                    <li class="list-group-item list-group-item-light"> <a class="nav-item nav-link" href="{% url 'Fizzle-Profile' %}">Update User Information</a></li>
                     <li class="list-group-item list-group-item-light"> <a class="nav-item nav-link" href="#">Take the Quiz</a></li>
-                    <li class="list-group-item list-group-item-light"> <a class="nav-item nav-link" href="{% url 'Fizzle-Upload_Picture' %}">Update User Information</a></li>
               {% else %}
               {% endif %}
                   </div>

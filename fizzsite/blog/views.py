@@ -6,26 +6,8 @@ from django.contrib.auth.decorators import login_required
 from users.forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib import messages
 
-posts = [
-    {
-        'author': 'Fizzle',
-        'title': 'Post 1',
-        'content': 'First Post',
-        'Date_Posted': 'Feb 8th'
-    },
-    {
-        'author': 'Fizzle',
-        'title': 'Post 2',
-        'content': 'Second Post',
-        'Date_Posted': 'Feb 9th'
-    }
-]
-
 def home(request):
-    context = {
-        'posts': posts
-    }
-    return render(request, 'blog/base.html', context)
+    return render(request, 'blog/base.html')
 
 def about(request):
     return render(request, 'blog/about.html', {'title': 'About'})
@@ -34,7 +16,16 @@ def login(request):
     return render(request, 'blog/login.html', {'title': 'Login'})
 
 def register(request):
-    return render(request, 'users/register.html', {'title': 'Register'})
+    if request.method == 'POST':
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            messages.success(request, f'Your account has been created! You are now able to log in')
+            return redirect('Fizzle-Register')
+    else:
+        form = UserRegisterForm()
+    return render(request, 'users/register.html', {'form': form})
 
 @login_required
 def upload_picture(request):
@@ -51,7 +42,7 @@ def profile(request):
             u_form.save()
             p_form.save()
             messages.success(request, f'Your account has been updated!')
-            return redirect('Fizzle-Profile')
+            return redirect('profile')
 
     else:
         u_form = UserUpdateForm(instance=request.user)
