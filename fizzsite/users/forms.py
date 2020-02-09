@@ -25,7 +25,8 @@ class ProfileUpdateForm(forms.ModelForm):
         model = Profile
         fields = ['name', 'location', 'age', 'image', 'bio']
 
+
 class QuestionsForm(forms.ModelForm):
     class Meta:
         model = Questions
-        fields = ['IsAHotdogASandwich', 'q2', 'q3', 'q4', 'q5']
+        fields = ['q1', 'q2', 'q3', 'q4', 'q5']

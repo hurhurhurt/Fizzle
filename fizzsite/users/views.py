@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
+from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm, QuestionsForm
+
 
 def register(request):
     if request.method == 'POST':
@@ -43,12 +44,12 @@ def profile(request):
 @login_required
 def questions(request):
     if request.method == 'POST':
-        q_form = UserUpdateForm(request.POST, instance=request.user)
+        q_form =QuestionsForm(request.POST, instance=request.user)
 
         if q_form.is_valid():
             q_form.save()
             messages.success(request, f'Questions answered')
-            return redirect('Fizzle-Profile')
+            return redirect('Fizzle-Home')
 
     else:
         q_form = QuestionsForm(instance=request.user.questions)

@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.dispatch import receiver
 from .models import Profile, Questions
 
+
 @receiver(post_save, sender=User)
 def save_profile(sender, instance, created, **kwargs):
     user = instance
@@ -10,9 +11,10 @@ def save_profile(sender, instance, created, **kwargs):
         profile = Profile.objects.create(user=user)
         profile.save()
 
+
 @receiver(post_save, sender=User)
-def save_questions(sender, instance, created, **kwargs):
+def save_question(sender, instance, created, **kwargs):
     user = instance
     if created:
-        questions = Questions.objects.create(user=user)
-        questions.save()
+        question = Questions.objects.create(user=user)
+        question.save()

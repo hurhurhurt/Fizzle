@@ -1,6 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
 from PIL import Image
+from django import forms
+from django.contrib.auth.models import User
+
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -22,9 +25,10 @@ class Profile(models.Model):
             img.thumbnail(output_size)
             img.save(self.image.path)
 
+
 class Questions(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    IsAHotdogASandwich = models.BooleanField(default='True')
+    q1 = models.BooleanField(default='True')
     q2 = models.BooleanField(default='True')
     q3 = models.BooleanField(default='True')
     q4 = models.BooleanField(default='True')
@@ -35,5 +39,3 @@ class Questions(models.Model):
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
-
-

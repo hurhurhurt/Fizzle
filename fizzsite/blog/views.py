@@ -5,7 +5,6 @@ from django.views import generic
 from django.contrib.auth.decorators import login_required
 from users.forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm, QuestionsForm
 from django.contrib import messages
-from blog.models import Quiz
 
 def home(request):
     return render(request, 'home.html')
@@ -59,12 +58,12 @@ def profile(request):
 @login_required
 def questions(request):
     if request.method == 'POST':
-        q_form = UserUpdateForm(request.POST, instance=request.user)
+        q_form = QuestionsForm(request.POST, instance=request.user)
 
         if q_form.is_valid():
             q_form.save()
             messages.success(request, f'Questions answered')
-            return redirect('Fizzle-Profile')
+            return redirect('Fizzle-Home')
 
     else:
         q_form = QuestionsForm(instance=request.user.questions)
@@ -74,18 +73,6 @@ def questions(request):
     }
 
     return render(request, 'users/quiz.html', context)
-
-@login_required
-def quiz(request):
-    if request.method == 'POST':
-        form = Quiz(request.POST)
-        if form.is_valid():
-            form.save()
-            form.questions = request.user
-            return redirect('Fizzle-Quiz')
-    else:
-        form = Quiz()
-    return render(request, 'blog/quiz.html', {'form': form})
 
 class SignUp(generic.CreateView):
     form_class = UserCreationForm

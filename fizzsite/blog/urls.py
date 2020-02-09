@@ -14,7 +14,7 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(template_name='blog/logout.html'), name='Fizzle-Logout'),
     path('register/', views.SignUp.as_view(), name = 'Fizzle-Register'),
     path('upload_picture/', views.upload_picture, name = 'Fizzle-Upload_Picture'),
-    path('quiz/', views.quiz, name = 'Fizzle-Quiz'),
+    path('questions/', views.questions, name = 'Fizzle-Questions'),
 ]
 
 if settings.DEBUG:
