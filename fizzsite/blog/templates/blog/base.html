@@ -45,7 +45,14 @@
     <main role="main" class="container">
       <div class="row">
         <div class="col-md-8">
-          {% block content %}{% endblock %}
+            {% if messages  %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+            {% block content %}{% endblock %}
         </div>
         <div class="col-md-4">
           <div class="content-section">
@@ -54,8 +61,8 @@
               <ul class="list-group">
                 <li class="list-group-item list-group-item-light"> <a class="nav-item nav-link" href="#">Match</a> </li>
                 <li class="list-group-item list-group-item-light"> <a class="nav-item nav-link" href="#">Bio & Interests</a></li>
-                <li class="list-group-item list-group-item-light"> <a class="nav-item nav-link" href="{% url 'Fizzle-Quiz' %}">Take the Quiz</a></li>
-                <li class="list-group-item list-group-item-light"> <a class="nav-item nav-link" href="#">Update User Information</a></li>
+                <li class="list-group-item list-group-item-light"> <a class="nav-item nav-link" href="#">Take the Quiz</a></li>
+                <li class="list-group-item list-group-item-light"> <a class="nav-item nav-link" href="{% url 'Fizzle-Upload_Picture' %}">Update User Information</a></li>
               </ul>
           </div>
         </div>
