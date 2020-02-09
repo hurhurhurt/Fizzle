@@ -7,7 +7,7 @@ class Profile(models.Model):
     name = models.CharField(max_length=20, default="Full Name")
     location = models.CharField(max_length=50, default="Location")
     age = models.PositiveSmallIntegerField(default=18)
-    image = models.ImageField(default='default.jpg', upload_to='profile_pics')
+    image = models.ImageField(default='default.png', upload_to='profile_pics')
     bio = models.TextField(max_length=500, default="Max 500 characters.")
 
     def __str__(self):
@@ -24,7 +24,7 @@ class Profile(models.Model):
 
 class Questions(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    q1 = models.BooleanField(default='True')
+    IsAHotdogASandwich = models.BooleanField(default='True')
     q2 = models.BooleanField(default='True')
     q3 = models.BooleanField(default='True')
     q4 = models.BooleanField(default='True')
