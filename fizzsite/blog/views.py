@@ -2,6 +2,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
+from django.contrib.auth.decorators import login_required
 
 posts = [
     {
@@ -33,9 +34,11 @@ def login(request):
 def register(request):
     return render(request, 'users/register.html', {'title': 'Register'})
 
+@login_required
 def upload_picture(request):
     return render(request, 'blog/upload_picture.html', {'title': 'quiz'})
 
+@login_required
 def profile(request):
     return render(request, 'users/profile.html', {'title': 'Profile'})
 
