@@ -31,7 +31,7 @@
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
-              <a class="nav-item nav-link" href="#">Login</a>
+              <a class="nav-item nav-link" href="{% url 'Fizzle-Login' %}">Login</a>
               <a class="nav-item nav-link" href="{% url 'Fizzle-Register' %}">Register</a>
             </div>
           </div>
@@ -48,10 +48,10 @@
             <h3>What do you want to do?</h3>
             <p class='text-muted'>
               <ul class="list-group">
-                <li class="list-group-item list-group-item-light">Matches </li>
-                <li class="list-group-item list-group-item-light">Bio</li>
-                <li class="list-group-item list-group-item-light">Interests</li>
-                <li class="list-group-item list-group-item-light">Update User Information</li>
+                <li class="list-group-item list-group-item-light"> <a class="nav-item nav-link" href="#">Match</a> </li>
+                <li class="list-group-item list-group-item-light"> <a class="nav-item nav-link" href="#">Bio</a></li>
+                <li class="list-group-item list-group-item-light"> <a class="nav-item nav-link" href="#">Interests</a></li>
+                <li class="list-group-item list-group-item-light"> <a class="nav-item nav-link" href="#">Update User Information</a></li>
               </ul>
           </div>
         </div>
