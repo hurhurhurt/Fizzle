@@ -87,6 +87,8 @@ class SignUp(generic.CreateView):
     template_name = 'users/register.html'
 
 def match(request):
-    user = User.objects.get(pk=2)
+    import random
+    num = random.randrange(34,42)
+    user = User.objects.get(pk=num)
     return render(request, 'users/match.html', {'user':user})
 

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <h1 style="text-align: center;">Matches</h1>
+
+    <?php
+    $files = glob($dir . '/*.*');
+    $file = array_rand($files);
+    result = $files[$file];
+    echo '<img src="data:image/jpeg;base64,'.base64_encode( $result['image'] ).'"/>;
+    >?
+
+    select * from users_profile p rand() limit 1 join users_questions q on u.id = p.id;
+
+
+{% endblock %}
